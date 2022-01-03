@@ -13,7 +13,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+// Decorador
+function estampar(logo) {
+    return function (target) {
+        target.prototype.estampacion = function () {
+            console.log("Camiseta estampada con el logo de " + logo);
+        };
+    };
+}
 // Clase (molde del objeto)
+//@estampar('Gucci Gang')
 var Camiseta = /** @class */ (function () {
     // Métodos (funciones o acciones del objeto)
     function Camiseta(color, modelo, marca, talla, precio) {
@@ -47,6 +56,7 @@ var Sudadera = /** @class */ (function (_super) {
 }(Camiseta));
 var camiseta = new Camiseta("uno", "dos", "tres", "cuatro", 5);
 console.log(camiseta);
+//camiseta.estampacion();
 var sudadera_nike = new Sudadera("Rojo", "Manga Larga", "Nike", "L", 30);
 sudadera_nike.setCapucha(true);
 sudadera_nike.setColor("Azul");
